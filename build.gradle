@@ -1,52 +1,17 @@
 /*
-Delegate data to project object
-*/
-project.task("myTask1")
+Task dependencies
+Task A depends on Task B if task A cannot do its work without task B
 
-/*
-And there are many ways to do it
 */
-task("myTask2")
-task "myTask3"
-
-/*
-and even..
-*/
-task myTask4
-
-/*
-So Lets see what task can do
-By the way here a task is a self contained unit of work that gradle can reason about.
-So here task can have a group, description and closure.
-Oh wait what is closure?
-Techinally, from formal documentation:
-A closure in Groovy is an open, anonymous, block of code that can take arguments, return a value and be assigned to a variable
-Means you can do anything with it. literally anything.
-So lets get into a task
-*/
-
-myTask4.description="I am Shown in task list"
-myTask4.group = "I am heading for task"
-myTask4.doLast{
-println "I am responsible for actions in task"
+task putOnSocks{
+	doLast{
+		println "Putting on Socks"
+	}
 }
 
-/*
-So lets run and see what happens now
-:) Do it yourself
-gradle myTask4
-*/
-
-
-/*
-Ok looks we are good. lets go deeper
-*/
-myTask4.doFirst{
-println "I will print actions first"
-}
-/*
-Running it all at once
-*/
-task myTask5{
-	doLast{println "I do thhings all at once"}
+task putOnShoes{
+	dependsOn "putOnSocks"
+	doLast{
+		println "Putting on Shoes"
+	}
 }
