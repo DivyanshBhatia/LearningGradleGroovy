@@ -34,5 +34,19 @@ println "I am responsible for actions in task"
 /*
 So lets run and see what happens now
 :) Do it yourself
-task myTask4
+gradle myTask4
 */
+
+
+/*
+Ok looks we are good. lets go deeper
+*/
+myTask4.doFirst{
+println "I will print actions first"
+}
+/*
+Running it all at once
+*/
+task myTask5{
+	doLast{println "I do thhings all at once"}
+}
