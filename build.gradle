@@ -1,17 +1,21 @@
 /*
-Task dependencies
-Task A depends on Task B if task A cannot do its work without task B
+Task finalized
+Task A finalized by Task B if task B has to do its work after task A
 
 */
 task putOnSocks{
+	finalizedBy "putOnShoes"
 	doLast{
 		println "Putting on Socks"
 	}
 }
 
 task putOnShoes{
-	dependsOn "putOnSocks"
 	doLast{
 		println "Putting on Shoes"
 	}
 }
+
+/*
+See the difference here
+*/
