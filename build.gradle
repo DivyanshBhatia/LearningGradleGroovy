@@ -1,21 +1,22 @@
 /*
-Task finalized
-Task A finalized by Task B if task B has to do its work after task A
-
+Wow! groovy looks amazing till now
+now comes shouldRunAfter and mustRunAfter
 */
-task putOnSocks{
-	finalizedBy "putOnShoes"
+task takeShower{
 	doLast{
-		println "Putting on Socks"
+		println "Taking a Shower"
 	}
 }
 
-task putOnShoes{
+task putFragrance{
+	shouldRunAfter "takeShower"
 	doLast{
-		println "Putting on Shoes"
+		println "Putting a Fragrance"
 	}
 }
 
 /*
-See the difference here
+Lets Run 
+>> gradle -q takeShower putFragrance
+Observe the result here
 */
